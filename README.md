@@ -43,7 +43,7 @@ http://github.com/trapeze/haystack-static-pages/
 Credits
 -------
 
-haystack-static-pages is maintained by David Sauve<mailto:dsauve@trapeze.com>, and is funded by Trapeze<http://www.trapeze.com>.
+haystack-static-pages is maintained by [David Sauve](mailto:dsauve@trapeze.com), and is funded by [Trapeze](http://www.trapeze.com).
 
 License
 -------
