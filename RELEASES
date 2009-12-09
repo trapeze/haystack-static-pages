@@ -1,0 +1,54 @@
+haystack_static_pages-0.2.0ALPHA
+================================
+
+Tagged on November 24, 2009 by David Sauve <dsauve@trapeze.com>
+
+
+Major Code Changes
+------------------
+
+* Rewritten `crawl_static_pages` command to extract title and meta-description tags
+* `crawl_static_pages` can now accept full urls as well as named urls.  This means it can index content that is stored remotely as well as outside of the Django project itself as well as the typical internal links.
+
+Upgrade Instructions
+--------------------
+
+* Reset and recreate the tables and indexes for static pages:
+
+     ./manage.py reset haystack_static_pages
+     ./manage.py crawl_static_pages
+     ./manage.py reindex
+
+
+
+* * *
+
+
+haystack_static_pages-0.1.0ALPHA
+================================
+
+Tagged on October 9, 2009 by David Sauve <dsauve@trapeze.com>
+
+
+New Features
+------------
+
+None
+
+
+Upgrade Instructions
+--------------------
+
+None
+
+
+Known issues
+------------
+
+None
+
+
+Bugs Fixed
+----------
+
+None
