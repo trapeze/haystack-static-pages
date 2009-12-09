@@ -20,5 +20,12 @@ setup(
     author_email='dsauve@trapeze.com',
     url='http://github.com/trapeze/haystack-static-pages/',
     license='BSD',
-    py_modules=['xapian_backend'],
+    packages=[
+        'haystack_static_pages',
+        'haystack_static_pages.management',
+        'haystack_static_pages.management.commands',
+    ],
+    package_data={
+        'haystack_static_pages': ['templates/*']
+    }
 )
