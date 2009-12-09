@@ -28,7 +28,7 @@ Notes:
 
     * title -- The title as defined in a <title> tag
     * url -- The url of the page
-    * description -- A short escription as taken from any existing <meta name="description"> tag
+    * description -- A short description as taken from any existing <meta name="description"> tag
     * content -- The page content.
 
 * Because the `crawl_static_pages` command can only index content as rendered, it must be able to access the pages when run.  This means, that when using named urls, the site must be accessible at the location specified in `Site.get_current().domain`.
