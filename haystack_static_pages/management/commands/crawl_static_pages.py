@@ -58,7 +58,7 @@ class Command(BaseCommand):
                 continue
             
             soup = BeautifulSoup(html)
-            page.title = escape(soup.head.title.string)
+            page.title = escape(soup.head.title.contents[0].strip())
             meta = soup.find('meta', attrs={'name': 'description'})
             if meta:
                 page.description = meta.get('content', '')
