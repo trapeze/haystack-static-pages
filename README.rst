@@ -51,4 +51,4 @@ haystack-static-pages is maintained by `David Sauve <mailto:dsauve@trapeze.com>`
 License
 -------
 
-haystack-static-pages is Copyright © 2009 David Sauve, Trapeze. It is free software, and may be redistributed under the terms specified in the LICENSE file. 
+haystack-static-pages is Copyright © 2009-2010 David Sauve, Trapeze. It is free software, and may be redistributed under the terms specified in the LICENSE file. 
