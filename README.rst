@@ -7,9 +7,11 @@ haystack_static_pages
 Usage:
 ------
 
-1. Setup and install Haystack.
-1. Add haystack_extensions to your INSTALLED_APPS in `settings.py`
-1. Add HAYSTACK_STATIC_PAGES to your `settings.py`.
+#. Setup and install Haystack.
+#. Add haystack_extensions to your INSTALLED_APPS in `settings.py`
+#. Add HAYSTACK_STATIC_PAGES to your `settings.py`.
+
+::
 
     HAYSTACK_STATIC_PAGES = (
         'static-about_us',     # A named url
@@ -17,9 +19,10 @@ Usage:
         'http://example.com/', # A full url
     )
 
-1. ./manage.py syncdb to create the necessary tables.
-1. ./manage.py crawl_static_pages to populate the database with the static page content.  This is needed for Haystack to properly map the urls to the content. Output should indicate which pages were crawled and where, as well as the total number of pages found.
-1. ./manage.py reindex to create the search indexes used by Haystack.  You should see a note about how many static pages were indexed.  The number of static pages indexed should match the number of static pages created in the step above.
+4. ./manage.py syncdb to create the necessary tables.
+#. ./manage.py crawl_static_pages to populate the database with the static page content.  This is needed for Haystack to properly map the urls to the content. Output should indicate which pages were crawled and where, as well as the total number of pages found.
+#. (If using the Solr backend) ./manage.py rebuild_solr_schema to create the Solr XML schema.  Be sure to copy the generated schema.xml into your Solr configuration.
+#. ./manage.py reindex to create the search indexes used by Haystack.  You should see a note about how many static pages were indexed.  The number of static pages indexed should match the number of static pages created in the step above.
 
 Notes:
 ------
@@ -37,13 +40,13 @@ Notes:
 Source
 ------
 
-http://github.com/trapeze/haystack-static-pages/
+`github.com/trapeze/haystack-static-pages/ <http://github.com/trapeze/haystack-static-pages/>`_
 
 
 Credits
 -------
 
-haystack-static-pages is maintained by [David Sauve](mailto:dsauve@trapeze.com), and is funded by [Trapeze](http://www.trapeze.com).
+haystack-static-pages is maintained by `David Sauve <mailto:dsauve@trapeze.com>`_, and is funded by `Trapeze <http://www.trapeze.com>`_.
 
 License
 -------
