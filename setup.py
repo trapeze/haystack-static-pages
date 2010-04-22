@@ -8,7 +8,7 @@ setup(
     name='haystack-static-pages',
     version='0.2.0alpha',
     description="Static pages for Haystack",
-    long_description=read('README.md'),
+    long_description=read('README.rst'),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
