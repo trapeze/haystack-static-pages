@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.management.base import BaseCommand, CommandError
 from django.core.urlresolvers import reverse
+from django.utils import translation
 from django.utils.html import escape
 from optparse import make_option
 
@@ -16,9 +17,11 @@ class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
         make_option('-p', '--port', action='store', dest='port', default=None,
             help='The port number to use for internal urls.'),
+        make_option('-l', '--language', action='store', dest='language', default=None,
+            help='The language to use when requesting the page'),
     )
     help = 'Setup static pages defined in HAYSTACK_STATIC_PAGES for indexing by Haystack'
-    cmd = 'crawl_static_pages [-p PORT]'
+    cmd = 'crawl_static_pages [-p PORT] [-l LANG]'
     
     def handle(self, *args, **options):
         if args:
@@ -34,6 +37,11 @@ class Command(BaseCommand):
 
         count = 0
 
+        self.language = options.get('language')
+
+        if self.language:
+            translation.activate(self.language)
+        
         for url in settings.HAYSTACK_STATIC_PAGES:
             if not url.startswith('http://'):
                 if self.port:
@@ -58,12 +66,16 @@ class Command(BaseCommand):
                 continue
             
             soup = BeautifulSoup(html)
-            page.title = escape(soup.head.title.contents[0].strip())
+            try:
+                page.title = escape(soup.head.title.string)
+            except AttributeError:
+                page.title = 'Untitled'
             meta = soup.find('meta', attrs={'name': 'description'})
             if meta:
                 page.description = meta.get('content', '')
             else:
                 page.description = ''
+            page.language = soup.html.get('lang') # TODO: Discuss how to do this for multilang
             page.content = soup.prettify()
             page.save()
             count += 1

@@ -1,3 +1,28 @@
+haystack_static_pages-0.4.0ALPHA
+================================
+
+Tagged on July 28, 2010 by David Sauve <dsauve@trapeze.com>
+
+
+Minor Code Changes
+------------------
+
+* Added the `-l, --language` option to allow indexing of multi-lingual content.
+
+Upgrade Instructions
+--------------------
+
+* Reset and recreate the tables and indexes for static pages:
+
+	     ./manage.py reset haystack_static_pages
+	     ./manage.py crawl_static_pages
+	     ./manage.py rebuild_index
+
+
+
+* * *
+
+
 haystack_static_pages-0.3.0ALPHA
 ================================
 
@@ -14,9 +39,9 @@ Upgrade Instructions
 
 * Reset and recreate the tables and indexes for static pages:
 
-     ./manage.py reset haystack_static_pages
-     ./manage.py crawl_static_pages
-     ./manage.py reindex
+	     ./manage.py reset haystack_static_pages
+	     ./manage.py crawl_static_pages
+	     ./manage.py reindex
 
 
 
@@ -40,9 +65,9 @@ Upgrade Instructions
 
 * Reset and recreate the tables and indexes for static pages:
 
-     ./manage.py reset haystack_static_pages
-     ./manage.py crawl_static_pages
-     ./manage.py reindex
+	     ./manage.py reset haystack_static_pages
+	     ./manage.py crawl_static_pages
+	     ./manage.py reindex
 
 
 

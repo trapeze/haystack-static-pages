@@ -9,6 +9,7 @@ class StaticPage(models.Model):
     url = models.URLField(_('url'), max_length=255)
     description = models.TextField(_('description'))
     content = models.TextField(_('content'))
+    language = models.CharField(_('language'), max_length=5)
     
     class Meta:
         verbose_name = _('static page')
