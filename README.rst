@@ -9,24 +9,26 @@ and command extension.
 Basic Usage:
 ------------
 
-1. Setup and install Haystack.
-1. Add haystack\_static\_pages to your INSTALLED_APPS in `settings.py`
-1. Add HAYSTACK\_STATIC\_PAGES to your `settings.py`.
+#. Setup and install Haystack.
+#. Add ``haystack_static_pages`` to your ``INSTALLED_APPS`` in ``settings.py``
+#. Add ``HAYSTACK_STATIC_PAGES`` to your ``settings.py``.
 
-	    eg. HAYSTACK\_STATIC\_PAGES = (
-	        'static-about_us',                        # A named url
-	        'static-help',                            # Another named url
-			'http://www.example.com/some_page.html',  # An fully qualified url
+	eg. ::
+
+	    HAYSTACK\_STATIC\_PAGES = (
+                'static-about_us',                        # A named url
+                'static-help',                            # Another named url
+                'http://www.example.com/some_page.html',  # An fully qualified url
 	    )
 
-1. `./manage.py syncdb` to create the necessary tables.
-1. `./manage.py crawl_static_pages` to populate the database with the static
+#. ``./manage.py syncdb`` to create the necessary tables.
+#. ``./manage.py crawl_static_pages`` to populate the database with the static
    page content.  This is needed for Haystack to properly map the urls to the
    content. Output should indicate which pages were crawled and where, as well
    as the total number of pages found.
-   **Crawled pages must be accessible through an http connection.  eg., they
+   **Crawled pages must be accessible through an http connection.  ie., they
    must be viewable in a browser.**
-1. `./manage.py rebuild_index` to create the search indexes used by Haystack.
+#. ``./manage.py rebuild_index`` to create the search indexes used by Haystack.
    You should see a note about how many static pages were indexed.  The number
    of static pages indexed should match the number of static pages created in
    the step above.
@@ -37,9 +39,10 @@ Advanced Usage:
 There are currently two command line options that can be used with the 
 `crawl_static_pages` command:
 
-1. `-l, --language` -- This allows the user to specify the desired language for 
-   indexing content.  Each page will include a `language` attribute that will 
-   correspond to the page's language as detected in the html lang attribute or
-   'en' if unable to be determined.
-1. `-p, --port` -- This allows the user to include the port number to crawl,
-   if required.
+-l LANG, --language=LANG  This allows the user to specify the desired language
+                          for indexing content.  Each page will include a 
+                          ``language`` attribute that will correspond to the
+                          page's language as detected in the html lang attribute
+                          or 'en' if unable to be determined.
+-p PORT, --port=PORT      This allows the user to include the port number to 
+                          crawl, if required.
