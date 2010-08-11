@@ -12,6 +12,7 @@ class StaticPageIndex(indexes.SearchIndex):
     title = indexes.CharField(model_attr='title')
     url = indexes.CharField(model_attr='url')
     content = indexes.CharField(model_attr='content')
+    description = indexes.CharField(model_attr='description')
     language = indexes.CharField(model_attr='language')
 
 
