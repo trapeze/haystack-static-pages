@@ -75,7 +75,7 @@ class Command(BaseCommand):
                 page.description = meta.get('content', '')
             else:
                 page.description = ''
-            page.language = soup.html.get('lang')
+            page.language = soup.html.get('lang', 'en')
             page.content = soup.prettify()
             page.save()
             count += 1
