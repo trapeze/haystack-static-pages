@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name='haystack-static-pages',
-    version='0.2.0alpha',
+    version='0.2.1alpha',
     description="Static pages for Haystack",
     long_description=read('README.rst'),
     classifiers=[
